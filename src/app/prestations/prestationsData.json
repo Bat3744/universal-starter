@@ -1,0 +1,59 @@
+{
+    "prestations" : [
+        {
+            "name" : "Sorbonne de laboratoire",
+            "controls" : [
+                {
+                  "code" : "sorbonneReception",
+                  "type" : "Essai de réception",
+                  "detail" : "(selon les normes NF EN 14175 et NF X 15-206)"
+                },
+                {
+                  "code" : "sorbonneRoutine",
+                  "type" : "Essai de routine",
+                  "detail" : "(selon les normes NF EN 14175 ou XPX 15-203)"
+                }
+            ]
+        },
+        {
+            "name" : "Sorbonne a recirculation",
+            "controls" : [
+                {
+                  "code" : "sorbonneRecirculation",
+                  "type" : "Essai de routine",
+                  "detail" : "(selon la norme NF X 15-211)"
+                }
+            ]
+        },
+        {
+            "name" : "Hotte de chimie",
+            "controls" : [
+                {
+                  "code" : "hotteChimie",
+                  "type" : "Contrôle périodique",
+                  "detail" : "(selon l’ED 695 de l’INRS)"
+                }
+            ]
+        },
+        {
+            "name" : "Bras orientable aspirant",
+            "controls" : [
+                {
+                  "code" : "brasAspirant",
+                  "type" : "Contrôle périodique",
+                  "detail" : "(selon l’ED 695 de l’INRS)"
+                }
+            ]
+        },
+        {
+            "name" : "Armoire ventilée",
+            "controls" : [
+                {
+                  "code" : "armoireVentilee",
+                  "type" : "Contrôle périodique",
+                  "detail" : "(selon la norme NF EN 14470-1)"
+                }
+            ]
+        }
+    ]
+}

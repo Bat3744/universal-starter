@@ -1,0 +1,9 @@
+{
+  "valeurs": [
+    {"image": "pressure.svg", "titre": "COMPETENCE", "content": "Equipés de nos <b>appareils de mesure spécifiques</b> et <b>certifiés</b>, nous vous apportons notre <b>savoir-faire</b> dans le domaine des mesures aérauliques. Notre objectif : évaluer les performances de vos équipements de protection collective."},
+    {"image": "question.svg", "titre": "EXPERTISE", "content": "Soucieux de répondre parfaitement à vos attentes et aux exigences normatives en vigueur, nous vous <b>conseillons</b> et nous engageons à trouver des <b>solutions techniques</b> pour répondre à vos problématiques d’hygiène et de sécurité. "},
+    {"image": "analytics.svg", "titre": "DISPONIBILITE", "content": "Nous sommes réactifs et vous accompagnons <b>partout en France</b> et à l’international.<br/> Durant les campagnes de mesure, nous assurons un <b>suivi quotidien</b> avec nos clients pour les tenir informés de l’évolution des contrôles."},
+    {"image": "shield.svg", "titre": "QUALITE DES RAPPORTS", "content": "Nous mettons un point d’honneur à joindre à nos mesures une <b>interprétation claire et détaillée</b> des résultats des contrôles réalisés ainsi que des <b>préconisations d’utilisation</b> de vos sorbonnes de laboratoire et de vos autres équipements de protection ventilés."},
+    {"image": "shield.svg", "titre": "SECURITE", "content": "Mettre à disposition des équipements de protection collective pour ses collaborateurs est une nécessité. S’assurer que leur performance est au rendez vous, c’est essentiel."}
+  ]
+}

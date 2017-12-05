@@ -3,15 +3,19 @@ import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
-  template: `
-  <h1>Universal Demo using Angular and Angular CLI</h1>
-  <a routerLink="/">Home</a>
-  <a routerLink="/lazy">Lazy</a>
-  <a routerLink="/lazy/nested">Lazy_Nested</a>
-  <router-outlet></router-outlet>
-  `,
-  styles: []
+  templateUrl: 'app.component.html'
 })
 export class AppComponent {
+
+  constructor(meta: Meta, title: Title) {
+    // Sets the <title></title>
+    title.setTitle('Control Air');
+
+    // Sets the <meta> tag for the page
+    meta.addTags([
+      { name: 'author', content: 'ControlAir' },
+      { name: 'description', content: 'Spécialiste en mesure et analyse des comportements aérauliques.' },
+    ]);
+  }
 
 }

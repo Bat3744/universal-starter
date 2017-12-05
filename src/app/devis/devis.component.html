@@ -1,0 +1,96 @@
+<div id="devis-bloc" class="container">
+
+	<div class="row">
+		<h1>DEVIS</h1>
+	</div>
+
+	<div class="row" *ngIf="formErrors">
+		<div class="alert alert-danger form-errors" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<div [innerHTML]="formErrors"></div>
+		</div>
+	</div>
+
+	<div class="row" *ngIf="formSuccess">
+		<div class="alert alert-success form-success" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<div [innerHTML]="formSuccess"></div>
+		</div>
+	</div>
+
+	<form (ngSubmit)="onSubmit()">
+
+		<div class="row">
+
+			<div class="form-group col-md-4">
+				<label for="nom">Nom</label>
+				<input type="text" class="form-control" id="nom" required ngModel name="nom">
+			</div>
+
+			<div class="form-group col-md-4">
+				<label for="prenom">Prénom</label>
+				<input type="text" class="form-control" id="prenom" required ngModel name="prenom">
+			</div>
+
+		</div>
+
+		<div class="row">
+
+			<div class="form-group col-md-4">
+				<label for="email">Email</label>
+				<input type="text" class="form-control" id="email" required ngModel name="email">
+			</div>
+
+			<div class="form-group col-md-4">
+				<label for="telephone">Téléphone</label>
+				<input type="text" class="form-control" id="telephone" ngModel name="telephone">
+			</div>
+
+		</div>
+
+		<div class="row">
+
+			<div class="form-group col-md-4">
+				<label for="entreprise">Entreprise</label>
+				<input type="text" class="form-control" id="entreprise" ngModel name="entreprise">
+			</div>
+
+			<div class="form-group col-md-4">
+				<label for="naturePrestation">Nature de la préstation</label>
+				<select class="form-control" id="naturePrestation" ngModel name="naturePrestation">
+					<option *ngFor="let nature of natures" [value]="nature">{{nature}}</option>
+				</select>
+			</div>
+
+		</div>
+
+		<div class="row">
+
+			<div class="form-group col-md-8">
+				<label for="info">Information complémentaire</label>
+				<textarea class="form-control" id="info"
+						  (change)="textareaValueChange($event)">{{textareaValue}}</textarea>
+			</div>
+
+		</div>
+
+		<div class="row">
+			<div class="form-group col-md-8">
+				<re-captcha (resolved)="resolved($event)" siteKey="6LfVbiEUAAAAAACvbi_AmVq6GZ__ORNZmejycT3o"></re-captcha>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-4">
+				<button type="submit" class="btn btn-success" [hidden]="envoiEnCours">Envoyer</button>
+				<button type="submit" class="btn btn-success" [hidden]="!envoiEnCours" disabled="disabled"><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>  Envoi du message...</button>
+			</div>
+		</div>
+
+	</form>
+
+</div>

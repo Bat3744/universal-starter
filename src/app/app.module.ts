@@ -1,24 +1,51 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
+import {ModalModule} from 'ngx-modialog';
+import {BootstrapModalModule} from 'ngx-modialog/plugins/bootstrap';
+import { RecaptchaModule } from 'ng-recaptcha';
+
+import {AppComponent} from './app.component';
+
+import {MenuComponent} from './menu/menu.component';
+import {HeaderComponent} from './header/header.component';
+import {FooterComponent} from './footer/footer.component';
+import {SorbonneComponent} from './sorbonne/sorbonne.component';
+
+import {ValeursComponent} from './valeurs/valeurs.component';
+import {ValeursService} from './valeurs/valeurs.service';
+import {ReglementationComponent} from './reglementation/reglementation.component';
+import {PrestationsComponent} from './prestations/prestations.component';
+import {DevisComponent} from './devis/devis.component';
+import {DevisService} from './devis/devis.service';
+import {ContactComponent} from './contact/contact.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-  ],
-  imports: [
-    BrowserModule.withServerTransition({appId: 'my-app'}),
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full'},
-      { path: 'lazy', loadChildren: './lazy/lazy.module#LazyModule'},
-      { path: 'lazy/nested', loadChildren: './lazy/lazy.module#LazyModule'}
-    ])
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        MenuComponent,
+        HeaderComponent,
+        FooterComponent,
+        SorbonneComponent,
+        ValeursComponent,
+        ReglementationComponent,
+        PrestationsComponent,
+        DevisComponent,
+        ContactComponent
+    ],
+    imports: [
+        BrowserModule.withServerTransition({appId: 'control-air'}),
+        RouterModule.forRoot([]),
+        RecaptchaModule.forRoot(),
+        HttpModule,
+        ModalModule.forRoot(),
+        BootstrapModalModule,
+    ],
+    bootstrap: [ AppComponent ],
+    providers: [ ValeursService, DevisService ]
 })
-export class AppModule { }
+export class AppModule {
+}
