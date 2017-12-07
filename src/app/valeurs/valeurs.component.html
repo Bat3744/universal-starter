@@ -10,7 +10,7 @@
 
 	<div class="row">
 		<div *ngFor="let valeur of valeursData.valeurs" class="col-md-6 valeur-item">
-			<img src="./src/assests/{{valeur.image}}"><div class="valeur-title">{{valeur.titre}}</div>
+			<img src="./assets/images/{{valeur.image}}"><div class="valeur-title">{{valeur.titre}}</div>
 			<p [innerHTML]="valeur.content"></p>
 		</div>
 	</div>
