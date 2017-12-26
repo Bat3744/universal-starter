@@ -2,6 +2,8 @@ import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
 import {renderModuleFactory} from '@angular/platform-server';
 import {enableProdMode} from '@angular/core';
+import { FormValidator } from 'src/server/formValidator';
+import { MailUtils } from 'src/server/mailUtils';
 
 import * as express from 'express';
 import {join} from 'path';
@@ -46,6 +48,39 @@ app.get('/api/test', function (req, res) {
     res.send('Hello test World!');
 });
 
+app.post('/api/submitDevis', function (req, res) {
+
+    console.log('request = ' + JSON.stringify(req.body));
+
+    if (!req.body || !req.body.data) {
+        handleError(res, "Invalid form data", "Must provide valid data", 400);
+    }
+
+    const form = req.body.data.form,
+        captchaResponse = req.body.data.captchaResponse,
+        formValidator = new FormValidator(),
+        captchaPromise = formValidator.recaptchaValidation(captchaResponse),
+        formPromise = formValidator.validate(form),
+        mailUtils = new MailUtils();
+
+    Promise.all([captchaPromise, formPromise]).then(errors => {
+
+        const allErrors = Object.assign({}, errors[0], errors[1]);
+
+        if (!formValidator.isEmpty(allErrors)) {
+            res.send(allErrors);
+        } else {
+            mailUtils.sendEmail(form).then(() => {
+                res.send({});
+            }).catch((err) => {
+                res.send(err);
+            });
+        }
+
+    });
+
+});
+
 // Server static files from /browser
 app.get('*.*', express.static(join(DIST_FOLDER, 'browser'), {
     maxAge: '1y'
@@ -60,3 +95,8 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Node Express server listening on http://localhost:${PORT}`);
 });
+
+function handleError(res, reason, message, code) {
+    console.log("ERROR : " + reason);
+    res.status(code || 500).json({"error": message});
+}

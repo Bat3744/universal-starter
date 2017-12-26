@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Devis } from './devis';
 import { DevisService } from './devis.service';
 import { RecaptchaModule } from 'ng-recaptcha';
+import { NgForm } from '@angular/forms';
 
 @Component({
 	selector: 'devis',
@@ -38,7 +39,9 @@ export class DevisComponent {
 		this.model._infoComplementaire = ev.target.value;
 	}
 
-	onSubmit() {
+	onSubmit(e) {
+
+		e.preventDefault();
 
 		this.showLoading();
 

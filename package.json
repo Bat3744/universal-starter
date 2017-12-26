@@ -18,6 +18,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:server": "npm run build:ssr && npm run serve:ssr",
     "build": "ng build",
     "build:client-and-server-bundles": "ng build --prod && ng build --prod --app 1 --output-hashing=false",
     "build:prerender": "npm run build:client-and-server-bundles && npm run webpack:server && npm run generate:prerender",
@@ -46,6 +47,8 @@
     "jquery": "^3.2.1",
     "ng-recaptcha": "^3.0.2",
     "ngx-modialog": "^3.0.4",
+    "nodemailer": "^4.4.1",
+    "request": "^2.83.0",
     "rxjs": "^5.5.2",
     "zone.js": "^0.8.14"
   },
