@@ -39,10 +39,7 @@ export class DevisComponent {
 		this.model._infoComplementaire = ev.target.value;
 	}
 
-	onSubmit(e) {
-
-		e.preventDefault();
-
+	onSubmit() {
 		this.showLoading();
 
 		this.devisService.submitForm({

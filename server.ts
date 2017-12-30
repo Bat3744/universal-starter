@@ -2,10 +2,9 @@ import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
 import {renderModuleFactory} from '@angular/platform-server';
 import {enableProdMode} from '@angular/core';
-import { FormValidator } from 'src/server/formValidator';
-import { MailUtils } from 'src/server/mailUtils';
 
 import * as express from 'express';
+import * as bodyParser from 'body-parser';
 import {join} from 'path';
 import {readFileSync} from 'fs';
 
@@ -22,12 +21,15 @@ const DIST_FOLDER = join(process.cwd(), 'dist');
 const template = readFileSync(join(DIST_FOLDER, 'browser', 'index.html')).toString();
 
 // * NOTE :: leave this as require() since this file is built Dynamically from webpack
-const {AppServerModuleNgFactory, LAZY_MODULE_MAP} = require('./dist/server/main.bundle');
+const {AppServerModuleNgFactory, LAZY_MODULE_MAP, FormValidator, MailUtils} = require('./dist/server/main.bundle');
 
 // Express Engine
 import {ngExpressEngine} from '@nguniversal/express-engine';
 // Import module map for lazy loading
 import {provideModuleMap} from '@nguniversal/module-map-ngfactory-loader';
+
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
 app.engine('html', ngExpressEngine({

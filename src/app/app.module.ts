@@ -3,10 +3,9 @@ import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
 import {ModalModule} from 'ngx-modialog';
 import {BootstrapModalModule} from 'ngx-modialog/plugins/bootstrap';
-import { RecaptchaModule } from 'ng-recaptcha';
+import {RecaptchaModule} from 'ng-recaptcha';
 
 import {AppComponent} from './app.component';
 
@@ -43,6 +42,8 @@ import {ContactComponent} from './contact/contact.component';
         HttpModule,
         ModalModule.forRoot(),
         BootstrapModalModule,
+        FormsModule,
+        ReactiveFormsModule
     ],
     bootstrap: [ AppComponent ],
     providers: [ ValeursService, DevisService ]
