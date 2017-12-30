@@ -42,12 +42,12 @@
 
 			<div class="form-group col-md-4">
 				<label for="email">Email</label>
-				<input type="text" class="form-control" id="email" required ngModel name="email">
+				<input type="text" class="form-control" id="email" required [(ngModel)]="model.email" name="email">
 			</div>
 
 			<div class="form-group col-md-4">
 				<label for="telephone">Téléphone</label>
-				<input type="text" class="form-control" id="telephone" ngModel name="telephone">
+				<input type="text" class="form-control" id="telephone" [(ngModel)]="model.telephone" name="telephone">
 			</div>
 
 		</div>
@@ -56,12 +56,12 @@
 
 			<div class="form-group col-md-4">
 				<label for="entreprise">Entreprise</label>
-				<input type="text" class="form-control" id="entreprise" ngModel name="entreprise">
+				<input type="text" class="form-control" id="entreprise" [(ngModel)]="model.entreprise" name="entreprise">
 			</div>
 
 			<div class="form-group col-md-4">
 				<label for="naturePrestation">Nature de la préstation</label>
-				<select class="form-control" id="naturePrestation" ngModel name="naturePrestation">
+				<select class="form-control" id="naturePrestation" [(ngModel)]="model.naturePrestation" name="naturePrestation">
 					<option *ngFor="let nature of natures" [value]="nature">{{nature}}</option>
 				</select>
 			</div>
