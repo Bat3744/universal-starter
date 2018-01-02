@@ -64,5 +64,9 @@
     "reflect-metadata": "^0.1.10",
     "svg-inline-loader": "^0.8.0",
     "ts-loader": "^2.3.7"
+  },
+  "engines": {
+    "node": "8.9.1",
+    "npm": "5.6.0"
   }
 }
