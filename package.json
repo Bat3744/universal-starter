@@ -53,6 +53,8 @@
     "nodemailer": "^4.4.1",
     "request": "^2.83.0",
     "rxjs": "^5.5.2",
+    "svg-inline-loader": "^0.8.0",
+    "ts-loader": "^2.3.7",
     "typescript": "~2.4.2",
     "zone.js": "^0.8.14"
   },
@@ -60,9 +62,7 @@
     "cpy-cli": "^1.0.1",
     "express": "^4.15.2",
     "http-server": "^0.10.0",
-    "reflect-metadata": "^0.1.10",
-    "svg-inline-loader": "^0.8.0",
-    "ts-loader": "^2.3.7"
+    "reflect-metadata": "^0.1.10"
   },
   "engines": {
     "node": "8.9.1",
