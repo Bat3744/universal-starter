@@ -1,1 +1,1 @@
-web: npm run build:prerender && npm run serve:prerender
+web: npm run build:ssr && npm run serve:ssr
