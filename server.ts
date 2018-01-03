@@ -99,6 +99,6 @@ function handleError(res, reason, message, code) {
 }
 
 // Start up the Node server
-app.listen(PORT, () => {
+app.listen(PORT, function() {
     console.log(`Node Express server listening on http://localhost:${PORT}`);
 });
