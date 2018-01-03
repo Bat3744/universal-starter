@@ -1,1 +1,1 @@
-web: node dist/server.js
+web: npm run build:prerender && npm run serve:prerender
