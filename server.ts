@@ -13,6 +13,8 @@ enableProdMode();
 
 // Express server
 const app = express();
+
+const PORT = process.env.PORT || 4000;
 const DIST_FOLDER = join(process.cwd(), 'dist');
 
 // Our index.html we'll use as our template
@@ -91,14 +93,12 @@ app.get('*', (req, res) => {
     res.render('index', {req});
 });
 
-
-const port = process.env.PORT || 3003;
-
-app.listen(port, function () {
-    console.log('ControlAir server started on port ' + port);
-});
-
 function handleError(res, reason, message, code) {
     console.log("ERROR : " + reason);
     res.status(code || 500).json({"error": message});
 }
+
+// Start up the Node server
+app.listen(PORT, () => {
+    console.log(`Node Express server listening on http://localhost:${PORT}`);
+});
